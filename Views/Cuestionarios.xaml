@@ -39,5 +39,7 @@
 				</DataTemplate>
 			</CollectionView.ItemTemplate>
 		</CollectionView>
+        <Button Text="Volver al inicio" Clicked="VovlerClicked" BackgroundColor="#2196F3" TextColor="White" Margin="0,20,0,0"/>
 	</VerticalStackLayout>
+    
 </ContentPage>

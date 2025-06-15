@@ -25,7 +25,7 @@
 					<DataTemplate>
 						<Frame BackgroundColor="WhiteSmoke" Padding="10" CornerRadius="8" Margin="0,5">
 							<VerticalStackLayout>
-								<Label Text="{Binding Pregunta.Texto}" FontAttributes="Bold" FontSize="16" />
+								<Label Text="{Binding Pregunta.Texto}" FontAttributes="Bold" FontSize="16" TextColor="Black"/>
 								<Label Text="{Binding Respuesta}" FontSize="14" TextColor="DarkSlateGray"/>
 							</VerticalStackLayout>
 						</Frame>
@@ -33,7 +33,7 @@
 				</CollectionView.ItemTemplate>
 			</CollectionView>
             <Button Text="Ver en formato HTML" Clicked="OnVerHtmlClicked" BackgroundColor="#2196F3" TextColor="White" />
-
+            <Button Text="Vovler al inicio" Clicked="VovlerClicked" BackgroundColor="#2196F3" TextColor="White"/>
             <ActivityIndicator x:Name="LoadingIndicator" IsRunning="False" IsVisible="False" />
 
             <WebView x:Name="HtmlViewer" IsVisible="False" />

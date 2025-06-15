@@ -63,5 +63,13 @@ namespace SintomApp.Views
 
             }
         }
+        private async void VovlerClicked(object sender, EventArgs e)
+        {
+            bool confirmar = await DisplayAlert("Confirmar", "Pulse <Si> para volver.", "Sí", "No");
+            if (confirmar)
+            {
+                await Shell.Current.GoToAsync("//Admin");
+            }
+        }
     }
 }

@@ -142,6 +142,14 @@ public partial class RespuestasPorFecha : ContentPage
         SessionManager.FechaSeleccionada = _fecha;
         await Shell.Current.GoToAsync(nameof(HTMLPage));
     }
+    private async void VovlerClicked(object sender, EventArgs e)
+    {
+        bool confirmar = await DisplayAlert("Confirmar", "Pulse <Si> para volver.", "Sí", "No");
+        if (confirmar)
+        {
+            await Shell.Current.GoToAsync("//Admin");
+        }
+    }
 
     private async Task CargarRespuestas()
     {

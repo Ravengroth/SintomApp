@@ -34,7 +34,7 @@
         <Grid Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center">
             <Image
                 x:Name="InmunoglobulinaImg"
-                Source="iconoapp.jpg"
+                Source="iconoapp.png"
                 Aspect="AspectFit"
                 HeightRequest="{OnPlatform Android=200, iOS=200, WinUI=250}"
                 WidthRequest="{OnPlatform Android=200, iOS=200, WinUI=250}" />
