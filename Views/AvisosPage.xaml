@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SintomApp.Views.AvisosPage">
+
+	<ContentPage.Background>
+		<LinearGradientBrush>
+			<GradientStop Color="#32aaf3" Offset="0.0"/>
+			<GradientStop Color="White" Offset="1.0"/>
+		</LinearGradientBrush>
+	</ContentPage.Background>
+	
+	<ContentPage.Content>
+		<StackLayout Padding="20" Spacing="15">
+			<Label Text="Avisos del sistema" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+
+			<CollectionView x:Name="AvisosCollectionView" SelectionMode="None">
+				<CollectionView.ItemTemplate>
+					<DataTemplate>
+						<Frame BorderColor="Gray" CornerRadius="10" Padding="10" Margin="5">
+							<StackLayout>
+								<Label Text="{Binding Mensaje}" FontSize="16" />
+								<Label Text="{Binding Fecha, StringFormat='Fecha: {0:dd/MM/yyyy HH:mm}'}"
+                                       FontSize="12"
+                                       TextColor="Gray" />
+								<Label Text="{Binding LeidoTexto}" FontSize="12" TextColor="{Binding LeidoColor}" />
+							</StackLayout>
+						</Frame>
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
+			</CollectionView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SintomApp</name>
+    </assembly>
+    <members>
+        <member name="T:ArtDamage.Resource">
+            <summary>
+            Android Resource Designer class.
+            Exposes the Android Resource designer assembly into the project Namespace.
+            </summary>
+        </member>
+        <member name="M:SintomApp.ViewModels.PreguntaViewModel.RegistrarRespuesta(System.Int32,System.String,System.Object,System.String,System.Nullable{System.Decimal})">
+            <summary>
+            Registra la respuesta actual en formato JSON.
+            </summary>
+            <param name="idPregunta">ID de la pregunta</param>
+            <param name="respuestaPrincipal">Sí o No</param>
+            <param name="extra1">Dato adicional si aplica (string o número)</param>
+            <param name="extra2">Segundo dato adicional si aplica</param>
+            <param name="puntuacion">Puntuación asignada a esta pregunta</param>
+        </member>
+    </members>
+</doc>

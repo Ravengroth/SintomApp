@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SintomApp.Views.EditUser"
+             Padding="0">
+    
+	<ContentPage.Background>
+		<LinearGradientBrush>
+            <GradientStop Color="#32aaf3" Offset="0.0"/>
+			<GradientStop Color="White" Offset="1.0"/>
+		</LinearGradientBrush>
+	</ContentPage.Background>
+    
+    <Grid ColumnSpacing="10" Padding="10" >
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label
+               x:Name="Title"
+               Text="EDITAR USUARIO"
+               TextColor="Black"
+               FontSize="Large"
+               Style="{StaticResource TitleLabelStyle}"
+               HorizontalOptions="Center"
+               Margin="0,50,0,10"
+               Grid.Row="0"/>
+
+        <VerticalStackLayout Grid.Row="1" Margin="30,0,30,20" Spacing="10">
+            <SearchBar 
+                x:Name="BusquedaUsuarios" 
+                Placeholder="Buscar usuario..."
+                TextChanged="BusquedaUsuarios_TextChanged"
+                SearchButtonPressed="BusquedaUsuarios_SearchButtonPressed"/>
+            <Picker
+                x:Name="FiltroPicker"
+                Title="Filtrar por"
+                SelectedIndexChanged="FiltroPicker_SelectedIndexChanged">
+            </Picker>
+            <CollectionView x:Name="UsuariosView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border
+                            Stroke="Gray"
+                            StrokeThickness="1"
+                            BackgroundColor="White"
+                            StrokeShape="RoundRectangle 15"
+                            Margin="5"
+                            Padding="10">
+                            <Button 
+                                Text="{Binding Nombre}"
+                                Clicked="EditUserBtnClicked"
+                                BackgroundColor="BlueViolet"
+                                TextColor="White"
+                                CornerRadius="10"
+                                FontAttributes="Bold"
+                                HeightRequest="50"/>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+		</VerticalStackLayout>
+	</Grid>
+
+</ContentPage>
+
+
+
+

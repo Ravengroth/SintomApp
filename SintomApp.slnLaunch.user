@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "Nuevo perfil",
+    "Projects": [
+      {
+        "Path": "ArtDamage.csproj",
+        "Action": "Start",
+        "DebugTarget": "Pixel 7 Pro - API 35 (Android 15.0 - API 35)"
+      },
+      {
+        "Path": "..\\ClaveRSAAPI\\ClaveRSAAPI.csproj",
+        "Action": "Start",
+        "DebugTarget": "ClaveRSAAPI"
+      }
+    ]
+  }
+]

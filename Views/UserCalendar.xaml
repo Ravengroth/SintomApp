@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:calendar="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
+             x:Class="SintomApp.Views.UserCalendar"
+             Padding="0"
+			 Title="Calendario">
+    
+    <ContentPage.Background>
+        <LinearGradientBrush>
+            <GradientStop Color="#32aaf3" Offset="0.0" />
+            <GradientStop Color="White" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    
+    <ScrollView>
+		<StackLayout x:Name="MainStackLayout">
+
+			<Grid Padding="20"
+			  RowDefinitions="*,Auto,*"
+			  ColumnDefinitions="*,Auto,*">
+
+				<Grid Grid.Row="1" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="350">
+
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+
+					<!-- Título del mes -->
+					<Label x:Name="MesLabel"
+						   Grid.Row="0"
+						   FontAttributes="Bold"
+						   FontSize="24"
+						   HorizontalOptions="Center"
+						   Margin="0,10"/>
+
+					<!-- Calendario -->
+					<Grid x:Name="CalendarGrid"
+						  Grid.Row="2"
+						  ColumnSpacing="5"
+						  RowSpacing="5"
+						  Margin="0,10"/>
+
+					<!-- Navegación de meses -->
+					<HorizontalStackLayout Grid.Row="3"
+									   HorizontalOptions="Center"
+									   Margin="0,10">
+						<Button Text="◀" Clicked="MesAnterior_Clicked"/>
+						<Button Text="▶" Clicked="MesSiguiente_Clicked"/>
+					</HorizontalStackLayout>
+
+					<!-- Resumen del día -->
+					<Label x:Name="ResumenLabel"
+						   Text=""
+						   FontAttributes="Bold"
+						   FontSize="Medium"
+						   HorizontalOptions="Center"
+						   VerticalOptions="End"
+						   Margin="0,10"
+						   TextColor="Black"
+						   Grid.Row="4"/>
+
+				</Grid>
+			</Grid>
+
+			<!-- Contenedor para añadir evento sin ventanas emergentes -->
+			<StackLayout x:Name="EventoStack" Padding="20" IsVisible="False">
+				<Label Text="Añadir Evento" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" />
+				<DatePicker x:Name="EventoFecha"/>
+				<Entry x:Name="EventoTipo" Placeholder="Tipo de evento (ej. Cita médica)" />
+				<Entry x:Name="EventoDescripcion" Placeholder="Descripción" />
+				<Entry x:Name="EventoFrecuencia" Placeholder="Repetición (0 para único)" Keyboard="Numeric" />
+				<Button Text="Guardar Evento" Clicked="GuardarEvento_Clicked" BackgroundColor="LightGreen" />
+				<Button Text="Cancelar" Clicked="CancelarEvento_Clicked" BackgroundColor="LightGray" />
+			</StackLayout>
+
+		</StackLayout>
+	</ScrollView>
+</ContentPage>

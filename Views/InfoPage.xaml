@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SintomApp.Views.InfoPage">
+    
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="#32aaf3" Offset="0.0"/>
+            <GradientStop Color="White" Offset="1.0"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="Información sobre otras patologías:" FontSize="18" FontAttributes="Bold"/>
+
+            <Button Text="Lupus" Clicked="OnLupusClicked"/>
+            <Frame x:Name="LupusFrame" IsVisible="False" BackgroundColor="#eaf6ff" BorderColor="#0077c2" Padding="10">
+                <Label FontSize="14" HorizontalTextAlignment="Start" LineBreakMode="WordWrap">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="🦋 Lupus Eritematoso Sistémico (LES)" FontAttributes="Bold" />
+                            <Span Text="&#10;&#10;" />
+                            <!-- Salto de línea -->
+
+                            <Span Text="¿Qué es?" FontAttributes="Bold" />
+                            <Span Text="&#10;" />
+                            <Span Text="El LES es una enfermedad autoinmune crónica en la que el sistema inmunológico ataca por error a los tejidos sanos del cuerpo, causando inflamación y daño en órganos como la piel, articulaciones, riñones, corazón y cerebro." />
+                            <Span Text="&#10;&#10;" />
+
+                            <Span Text="Síntomas comunes:" FontAttributes="Bold" />
+                            <Span Text="&#10;" />
+                            <Span Text="• Dolor e inflamación en las articulaciones.&#10;" />
+                            <Span Text="• Erupciones cutáneas, especialmente en forma de mariposa en el rostro.&#10;" />
+                            <Span Text="• Fatiga persistente.&#10;" />
+                            <Span Text="• Fiebre sin causa aparente.&#10;" />
+                            <Span Text="• Sensibilidad a la luz solar.&#10;" />
+                            <Span Text="• Pérdida de cabello y úlceras bucales.&#10;&#10;" />
+
+                            <Span Text="Tratamiento:" FontAttributes="Bold" />
+                            <Span Text="&#10;" />
+                            <Span Text="• Medicamentos antiinflamatorios y corticosteroides.&#10;" />
+                            <Span Text="• Fármacos inmunosupresores.&#10;" />
+                            <Span Text="• Terapias dirigidas según los órganos afectados.&#10;&#10;" />
+
+                            <Span Text="Consejos para pacientes:" FontAttributes="Bold" />
+                            <Span Text="&#10;" />
+                            <Span Text="• Evitar la exposición al sol.&#10;" />
+                            <Span Text="• Mantener una dieta rica en calcio.&#10;" />
+                            <Span Text="• Ejercicio moderado.&#10;" />
+                            <Span Text="• Controlar el estrés.&#10;" />
+                            <Span Text="• Asistir a consultas médicas." />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Frame>
+
+            <Button Text="Esclerodermia" Clicked="OnEsclerodermiaClicked"/>
+            <Frame x:Name="EsclerodermiaFrame" IsVisible="False" BackgroundColor="#f3e8ff" BorderColor="#884EA0" Padding="10">
+                <Label FontSize="14" HorizontalTextAlignment="Start" LineBreakMode="WordWrap">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="🧤 Esclerodermia" FontAttributes="Bold" />
+                            <Span Text="&#10;&#10;" />
+
+                            <Span Text="¿Qué es?" FontAttributes="Bold" />
+                            <Span Text="&#10;" />
+                            <Span Text="La esclerodermia es una enfermedad autoinmune que implica el endurecimiento y estiramiento de la piel y los tejidos conectivos." />
+                            <Span Text="&#10;&#10;" />
+
+                            <Span Text="Síntomas comunes:" FontAttributes="Bold" />
+                            <Span Text="&#10;" />
+                            <Span Text="• Engrosamiento y endurecimiento de la piel.&#10;" />
+                            <Span Text="• Fenómeno de Raynaud.&#10;" />
+                            <Span Text="• Dolor y rigidez articular.&#10;" />
+                            <Span Text="• Problemas digestivos y respiratorios.&#10;&#10;" />
+
+                            <Span Text="Tratamiento:" FontAttributes="Bold" />
+                            <Span Text="&#10;" />
+                            <Span Text="• Medicación para síntomas.&#10;" />
+                            <Span Text="• Fisioterapia.&#10;" />
+                            <Span Text="• Tratamientos para órganos.&#10;&#10;" />
+
+                            <Span Text="Consejos para pacientes:" FontAttributes="Bold" />
+                            <Span Text="&#10;" />
+                            <Span Text="• Hidratación de la piel.&#10;" />
+                            <Span Text="• Evitar el estrés y el frío.&#10;" />
+                            <Span Text="• Ejercicio suave.&#10;" />
+                            <Span Text="• Monitoreo médico." />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+            </Frame>
+
+            <Button Text="Miositis" Clicked="OnMiositisClicked"/>
+            <Frame x:Name="MiositisFrame" IsVisible="False" BackgroundColor="#fff3cd" BorderColor="#ffcc00" Padding="10">
+                <Label FontSize="14" HorizontalTextAlignment="Start" LineBreakMode="WordWrap">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="💪 Miositis" FontAttributes="Bold" />
+                            <Span Text="&#10;&#10;" />
+
+                            <Span Text="¿Qué es?" FontAttributes="Bold" />
+                            <Span Text="&#10;" />
+                            <Span Text="Grupo de enfermedades que causan inflamación y debilidad muscular. Incluye polimiositis y dermatomiositis." />
+                            <Span Text="&#10;&#10;" />
+
+                            <Span Text="Síntomas comunes:" FontAttributes="Bold" />
+                            <Span Text="&#10;" />
+                            <Span Text="• Debilidad muscular proximal.&#10;" />
+                            <Span Text="• Dificultad para levantar objetos.&#10;" />
+                            <Span Text="• Fatiga y dolor muscular.&#10;" />
+                            <Span Text="• Erupciones cutáneas.&#10;&#10;" />
+
+                            <Span Text="Tratamiento:" FontAttributes="Bold" />
+                            <Span Text="&#10;" />
+                            <Span Text="• Inmunosupresores y corticosteroides.&#10;" />
+                            <Span Text="• Fisioterapia.&#10;" />
+                            <Span Text="• Tratamiento específico por tipo.&#10;&#10;" />
+
+                            <Span Text="Consejos para pacientes:" FontAttributes="Bold" />
+                            <Span Text="&#10;" />
+                            <Span Text="• Dieta equilibrada.&#10;" />
+                            <Span Text="• Ejercicio adaptado.&#10;" />
+                            <Span Text="• Evitar el sol en dermatomiositis.&#10;" />
+                            <Span Text="• Ajustes médicos regulares." />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+            </Frame>
+
+            <Button Text="Vasculitis" Clicked="OnVasculitisClicked"/>
+            <Frame x:Name="VasculitisFrame" IsVisible="False" BackgroundColor="#ffe0e0" BorderColor="#e60000" Padding="10">
+                <Label FontSize="14" HorizontalTextAlignment="Start" LineBreakMode="WordWrap">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="🩸 Vasculitis" FontAttributes="Bold" />
+                            <Span Text="&#10;&#10;" />
+
+                            <Span Text="¿Qué es?" FontAttributes="Bold" />
+                            <Span Text="&#10;" />
+                            <Span Text="Inflamación de vasos sanguíneos que puede dañar órganos y tejidos." />
+                            <Span Text="&#10;&#10;" />
+
+                            <Span Text="Síntomas comunes:" FontAttributes="Bold" />
+                            <Span Text="&#10;" />
+                            <Span Text="• Fiebre, fatiga, pérdida de peso.&#10;" />
+                            <Span Text="• Dolor muscular/articular.&#10;" />
+                            <Span Text="• Erupciones cutáneas.&#10;" />
+                            <Span Text="• Problemas neurológicos y respiratorios.&#10;&#10;" />
+
+                            <Span Text="Tratamiento:" FontAttributes="Bold" />
+                            <Span Text="&#10;" />
+                            <Span Text="• Corticoides e inmunosupresores.&#10;" />
+                            <Span Text="• Terapias específicas.&#10;&#10;" />
+
+                            <Span Text="Consejos para pacientes:" FontAttributes="Bold" />
+                            <Span Text="&#10;" />
+                            <Span Text="• Vacunarse.&#10;" />
+                            <Span Text="• Monitoreo médico regular.&#10;" />
+                            <Span Text="• Estilo de vida saludable." />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

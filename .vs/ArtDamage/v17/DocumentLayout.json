@@ -1,0 +1,442 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\views\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:views\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\views\\questill1.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:views\\questill1.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\views\\inicio.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:views\\inicio.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\views\\inicio.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:views\\inicio.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\views\\userregister.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:views\\userregister.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\views\\regpreguntas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:views\\regpreguntas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\views\\newuser.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:views\\newuser.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\views\\infopage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:views\\infopage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\views\\htmlpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:views\\htmlpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\views\\historialpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:views\\historialpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\views\\generartoken.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:views\\generartoken.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\views\\edituser.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:views\\edituser.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\views\\deluser.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:views\\deluser.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\views\\cuestionarios.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:views\\cuestionarios.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\views\\avisospage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:views\\avisospage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\views\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:views\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\views\\admin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:views\\admin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\class\\databasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:class\\databasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\class\\sessionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:class\\sessionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\views\\appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:views\\appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\class\\rsaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:class\\rsaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\views\\newuser.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:views\\newuser.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\views\\userdata.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:views\\userdata.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\views\\generartoken.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:views\\generartoken.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\views\\admin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:views\\admin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|c:\\users\\ricardo\\desktop\\maui\\artdamage\\views\\deluser.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5DEA657-5BBB-42D6-9156-86AF1AC5383A}|ArtDamage.csproj|solutionrelative:views\\deluser.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 179,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "DatabaseManager.cs",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Class\\DatabaseManager.cs",
+              "RelativeDocumentMoniker": "Class\\DatabaseManager.cs",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Class\\DatabaseManager.cs",
+              "RelativeToolTip": "Class\\DatabaseManager.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T14:43:31.171Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserRegister.xaml",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\UserRegister.xaml",
+              "RelativeDocumentMoniker": "Views\\UserRegister.xaml",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\UserRegister.xaml",
+              "RelativeToolTip": "Views\\UserRegister.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-13T08:59:06.262Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RegPreguntas.xaml",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\RegPreguntas.xaml",
+              "RelativeDocumentMoniker": "Views\\RegPreguntas.xaml",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\RegPreguntas.xaml",
+              "RelativeToolTip": "Views\\RegPreguntas.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-13T08:58:18.597Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Inicio.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\Inicio.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\Inicio.xaml.cs",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\Inicio.xaml.cs",
+              "RelativeToolTip": "Views\\Inicio.xaml.cs",
+              "ViewState": "AgIAAPsAAAAAAAAAAAAIwHkAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T10:39:00.009Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Inicio.xaml",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\Inicio.xaml",
+              "RelativeDocumentMoniker": "Views\\Inicio.xaml",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\Inicio.xaml",
+              "RelativeToolTip": "Views\\Inicio.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-13T08:57:11.03Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "InfoPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\InfoPage.xaml",
+              "RelativeDocumentMoniker": "Views\\InfoPage.xaml",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\InfoPage.xaml",
+              "RelativeToolTip": "Views\\InfoPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-13T08:57:02.319Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HTMLPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\HTMLPage.xaml",
+              "RelativeDocumentMoniker": "Views\\HTMLPage.xaml",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\HTMLPage.xaml",
+              "RelativeToolTip": "Views\\HTMLPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-13T08:56:53.996Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "HistorialPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\HistorialPage.xaml",
+              "RelativeDocumentMoniker": "Views\\HistorialPage.xaml",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\HistorialPage.xaml",
+              "RelativeToolTip": "Views\\HistorialPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-13T08:56:50.866Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "GenerarToken.xaml",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\GenerarToken.xaml",
+              "RelativeDocumentMoniker": "Views\\GenerarToken.xaml",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\GenerarToken.xaml",
+              "RelativeToolTip": "Views\\GenerarToken.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-13T08:56:45.586Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Questill1.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\Questill1.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\Questill1.xaml.cs",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\Questill1.xaml.cs",
+              "RelativeToolTip": "Views\\Questill1.xaml.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T16:08:39.922Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\MainPage.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\MainPage.xaml.cs",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\MainPage.xaml.cs",
+              "RelativeToolTip": "Views\\MainPage.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T10:38:29.179Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "EditUser.xaml",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\EditUser.xaml",
+              "RelativeDocumentMoniker": "Views\\EditUser.xaml",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\EditUser.xaml",
+              "RelativeToolTip": "Views\\EditUser.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-13T08:56:37.992Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DelUser.xaml",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\DelUser.xaml",
+              "RelativeDocumentMoniker": "Views\\DelUser.xaml",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\DelUser.xaml",
+              "RelativeToolTip": "Views\\DelUser.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-13T08:56:32.487Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Cuestionarios.xaml",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\Cuestionarios.xaml",
+              "RelativeDocumentMoniker": "Views\\Cuestionarios.xaml",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\Cuestionarios.xaml",
+              "RelativeToolTip": "Views\\Cuestionarios.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-13T08:56:25.512Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "NewUser.xaml",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\NewUser.xaml",
+              "RelativeDocumentMoniker": "Views\\NewUser.xaml",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\NewUser.xaml",
+              "RelativeToolTip": "Views\\NewUser.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOMAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-04T11:03:38.005Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AvisosPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\AvisosPage.xaml",
+              "RelativeDocumentMoniker": "Views\\AvisosPage.xaml",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\AvisosPage.xaml",
+              "RelativeToolTip": "Views\\AvisosPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-13T08:56:16.887Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AppShell.xaml",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\AppShell.xaml",
+              "RelativeDocumentMoniker": "Views\\AppShell.xaml",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\AppShell.xaml",
+              "RelativeToolTip": "Views\\AppShell.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-13T08:56:15.232Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Admin.xaml",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\Admin.xaml",
+              "RelativeDocumentMoniker": "Views\\Admin.xaml",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\Admin.xaml",
+              "RelativeToolTip": "Views\\Admin.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-13T08:56:08.722Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "SessionManager.cs",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Class\\SessionManager.cs",
+              "RelativeDocumentMoniker": "Class\\SessionManager.cs",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Class\\SessionManager.cs",
+              "RelativeToolTip": "Class\\SessionManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T14:23:38.321Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "RsaService.cs",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Class\\RsaService.cs",
+              "RelativeDocumentMoniker": "Class\\RsaService.cs",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Class\\RsaService.cs",
+              "RelativeToolTip": "Class\\RsaService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T13:39:22.214Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "NewUser.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\NewUser.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\NewUser.xaml.cs",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\NewUser.xaml.cs",
+              "RelativeToolTip": "Views\\NewUser.xaml.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAASwFoAAABmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T11:00:03.9Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "AppShell.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\AppShell.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\AppShell.xaml.cs",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\AppShell.xaml.cs",
+              "RelativeToolTip": "Views\\AppShell.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T10:38:20.068Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "UserData.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\UserData.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\UserData.xaml.cs",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\UserData.xaml.cs",
+              "RelativeToolTip": "Views\\UserData.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T22:21:57.554Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "GenerarToken.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\GenerarToken.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\GenerarToken.xaml.cs",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\GenerarToken.xaml.cs",
+              "RelativeToolTip": "Views\\GenerarToken.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T22:19:30.718Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "DelUser.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\DelUser.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\DelUser.xaml.cs",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\DelUser.xaml.cs",
+              "RelativeToolTip": "Views\\DelUser.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T22:16:10.789Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Admin.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\Admin.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\Admin.xaml.cs",
+              "ToolTip": "C:\\Users\\Ricardo\\Desktop\\MAUI\\ArtDamage\\Views\\Admin.xaml.cs",
+              "RelativeToolTip": "Views\\Admin.xaml.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwDQAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T22:15:50.719Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

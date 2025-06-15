@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:SintomApp.ViewModels"
+             x:Class="SintomApp.Views.Questill1"
+             x:DataType="vm:PreguntaViewModel"
+             Padding="0">
+
+    <ContentPage.Background>
+        <LinearGradientBrush>
+            <GradientStop Color="#32aaf3" Offset="0.0"/>
+            <GradientStop Color="White" Offset="1.0"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    
+    <Grid ColumnSpacing="10" Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Título -->
+        <Frame
+            Grid.Row="0"
+            CornerRadius="12"
+            BackgroundColor="White"
+            BorderColor="Black"
+            Padding="10"
+            Margin="0,30,0,10"
+            HasShadow="True">
+
+            <Label
+               x:Name="Title"
+               Text=""
+                FontSize="32"
+                TextColor="Black"
+                HorizontalOptions="Center"/>
+
+        </Frame>
+
+        <ScrollView Grid.Row="1"
+                    Margin="30,0,30,20">
+            <VerticalStackLayout 
+                    x:Name="ContenedorPreguntas" 
+                    Padding="20" 
+                    Spacing="25">
+
+                <StackLayout x:Name="PreguntaActualLayout" />
+            </VerticalStackLayout>
+
+        </ScrollView>
+        <Button
+                x:Name="BtnSiguiente"
+                Text="{Binding TextoBoton}"
+                Command="{Binding SiguienteCommand}"
+                IsEnabled="{Binding BotonHabilitado}"
+                Clicked="SiguienteBtnClicked"
+                Grid.Row ="2"/>
+
+    </Grid>
+
+</ContentPage>

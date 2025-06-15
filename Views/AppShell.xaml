@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="SintomApp.Views.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:SintomApp.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False" 
+    Title="SintomApp"
+    Padding="0">
+
+    <ShellContent 
+        Route="MainPage" 
+        ContentTemplate="{DataTemplate local:MainPage}"/>
+    <ShellContent 
+        Route="Inicio" 
+        ContentTemplate="{DataTemplate local:Inicio}" />
+    <ShellContent 
+        Route="Admin" 
+        ContentTemplate="{DataTemplate local:Admin}"/>
+
+
+</Shell>
+

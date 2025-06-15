@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SintomApp.Views.Cuestionarios"
+             Padding="20">
+	
+	<ContentPage.Background>
+		<LinearGradientBrush>
+			<GradientStop Color="#32aaf3" Offset="0.0"/>
+			<GradientStop Color="White" Offset="1.0"/>
+		</LinearGradientBrush>
+	</ContentPage.Background>
+	
+	<VerticalStackLayout>
+		<Label Text="Cuestionarios respondidos"
+               FontSize="24"
+               HorizontalOptions="Center"
+               Margin="0,20"/>
+
+		<Picker x:Name="FiltroPicker"
+                Title="Ordenar por"
+                SelectedIndexChanged="FiltroPicker_SelectedIndexChanged">
+			<Picker.Items>
+				<x:String>Fecha</x:String>
+				<x:String>Puntuación</x:String>
+			</Picker.Items>
+		</Picker>
+
+		<CollectionView x:Name="QuestView" Margin="0,20">
+			<CollectionView.ItemTemplate>
+				<DataTemplate>
+					<Frame BorderColor="Gray" CornerRadius="10" Padding="10" Margin="0,5">
+						<VerticalStackLayout>
+							<Label Text="{Binding FechaFormateada}" FontAttributes="Bold"/>
+							<Label Text="{Binding Puntuacion, StringFormat='Puntuación: {0}'}"/>
+							<Button Text="Ver respuestas" Clicked="LoadQuestBtnClicked"/>
+						</VerticalStackLayout>
+					</Frame>
+				</DataTemplate>
+			</CollectionView.ItemTemplate>
+		</CollectionView>
+	</VerticalStackLayout>
+</ContentPage>

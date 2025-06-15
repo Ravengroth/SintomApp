@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SintomApp.Views.HistorialPage"
+             Padding="0">
+
+	<ContentPage.Background>
+		<LinearGradientBrush>
+			<GradientStop Color="#32aaf3" Offset="0.0"/>
+			<GradientStop Color="White" Offset="1.0"/>
+		</LinearGradientBrush>
+	</ContentPage.Background>
+	
+	<ScrollView>
+		<VerticalStackLayout x:Name="PreguntasLayout"
+                             Padding="20"
+                             Spacing="10">
+			<!-- Aquí se agregarán los botones -->
+		</VerticalStackLayout>
+	</ScrollView>
+</ContentPage>

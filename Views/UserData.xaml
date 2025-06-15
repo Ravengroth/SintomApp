@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             x:Class="SintomApp.Views.UserData"
+             Padding="0"
+             Title="VISTA DE ADMINISTRADOR">
+
+    <ContentPage.Background>
+        <LinearGradientBrush>
+            <GradientStop Color="#32aaf3" Offset="0.0" />
+            <GradientStop Color="White" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <Grid RowDefinitions="Auto,*,Auto">
+        <Label x:Name="TituloLabel"
+               Text="VISTA DE ADMINISTRADOR"
+               TextColor="Black"
+               FontSize="Large"
+               HorizontalOptions="Center"
+               Margin="0,50,0,10"
+               Grid.Row="0"/>
+
+        <VerticalStackLayout Grid.Row="1" VerticalOptions="Center" Margin="30,0,30,20">
+            <!-- Botones -->
+            <Button 
+                x:Name="RegPreguntaBtn" 
+                Text="Registro por pregunta" 
+                Clicked="RegPreguntaBtnClicked"
+                HorizontalOptions="Fill" 
+                Margin="0,15,0,0"/>
+            <Button 
+                x:Name="PuntuacionBtn" 
+                Text="Historico de puntuaciones" 
+                Clicked="PuntuacionesBtnClicked"
+                HorizontalOptions="Fill" 
+                Margin="0,15,0,0"/>
+            <Button 
+                x:Name="CuestionariosUserBtn" 
+                Text="Mostrar cuestionario por fecha" 
+                Clicked="CuestionariosClicked"
+                HorizontalOptions="Fill" 
+                Margin="0,15,0,0"/>
+            <Button 
+                x:Name="CalendarioUsuarioBtn" 
+                Text="Consultar Calendario Usuario" 
+                Clicked="CalendarBtnClicked"
+                HorizontalOptions="Fill" 
+                Margin="0,15,0,0"/>
+
+            <!-- Título superior del gráfico -->
+            <Label Text="Histórico de puntuaciones" FontAttributes="Bold" FontSize="Medium"
+           HorizontalOptions="Center" Margin="0,20,0,0"/>
+
+            <!-- Títulos ejes -->
+            <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto">
+                <Label Text="Puntuación" Rotation="-90"
+               VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,10,0"/>
+
+                <syncfusion:SfCartesianChart x:Name="ScoreChart"
+                             Margin="20"
+                             BackgroundColor="White"
+                             HeightRequest="300">
+                    <syncfusion:SfCartesianChart.XAxes>
+                        <syncfusion:CategoryAxis>
+                            <syncfusion:CategoryAxis.Title>
+                                <syncfusion:ChartAxisTitle Text="Fecha"/>
+                            </syncfusion:CategoryAxis.Title>
+                        </syncfusion:CategoryAxis>
+                    </syncfusion:SfCartesianChart.XAxes>
+                    <syncfusion:SfCartesianChart.YAxes>
+                        <syncfusion:NumericalAxis>
+                            <syncfusion:NumericalAxis.Title>
+                                <syncfusion:ChartAxisTitle Text="Puntuación"/>
+                            </syncfusion:NumericalAxis.Title>
+                        </syncfusion:NumericalAxis>
+                    </syncfusion:SfCartesianChart.YAxes>
+                </syncfusion:SfCartesianChart>
+            </Grid>
+
+            <!-- Media -->
+            <Label x:Name="MediaLabel"
+           Text="Media:"
+           FontAttributes="Bold"
+           FontSize="Medium"
+           HorizontalOptions="Center"
+           Margin="0,10,0,0"/>
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentPage>

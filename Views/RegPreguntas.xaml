@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SintomApp.Views.RegPreguntas"
+             Padding="0">
+    
+	<ContentPage.Background>
+		<LinearGradientBrush>
+			<GradientStop Color="#32aaf3" Offset="0.0" />
+			<GradientStop Color="White" Offset="1.0" />
+		</LinearGradientBrush>
+	</ContentPage.Background>
+
+	<Grid RowDefinitions="Auto, Auto, *" Padding="20">
+
+		<!-- Título -->
+		<Label Text="Preguntas"
+               FontSize="Large"
+               Style="{StaticResource TitleLabelStyle}"
+               HorizontalOptions="Center"
+               Margin="0,50,0,10"
+               Grid.Row="0"/>
+
+		<!-- Picker -->
+		<Picker Grid.Row="1"
+                x:Name="FiltroPicker"
+                Title="Ordenar por"
+                SelectedIndexChanged="FiltroPicker_SelectedIndexChanged"
+                Margin="0,10,0,10">
+			<Picker.ItemsSource>
+				<x:Array Type="{x:Type x:String}">
+					<x:String>Id</x:String>
+					<x:String>Puntuacion</x:String>
+				</x:Array>
+			</Picker.ItemsSource>
+		</Picker>
+
+		<!-- CollectionView scrollable -->
+		<CollectionView x:Name="QuestView"
+                        Grid.Row="2"
+                        VerticalOptions="FillAndExpand">
+			<CollectionView.ItemTemplate>
+				<DataTemplate>
+					<Frame Padding="10"
+                           Margin="5"
+                           BackgroundColor="#d0e8ff"
+                           HasShadow="True"
+                           CornerRadius="10">
+						<Grid ColumnDefinitions="Auto, *, Auto"
+                              VerticalOptions="Center">
+							<Label Text="{Binding Id}"
+                                   FontAttributes="Bold"
+                                   TextColor="Black"
+                                   VerticalOptions="Center"
+                                   Margin="0,0,10,0" />
+
+							<Label Text="{Binding Texto}"
+                                   TextColor="Black"
+                                   LineBreakMode="WordWrap"
+                                   VerticalOptions="Center"
+                                   Grid.Column="1" />
+
+							<Button Text="Ver"
+                                    Clicked="LoadQuestBtnClicked"
+                                    BindingContext="{Binding .}"
+                                    VerticalOptions="Center"
+                                    Grid.Column="2" />
+						</Grid>
+					</Frame>
+				</DataTemplate>
+			</CollectionView.ItemTemplate>
+		</CollectionView>
+	</Grid>
+</ContentPage>

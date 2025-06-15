@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SintomApp.Views.MainPage"
+             Padding="0">
+    
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#1565C0" Offset="0.0"/>
+            <GradientStop Color="#81D4FA" Offset="1.0"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    
+    <Grid RowDefinitions="Auto,*,Auto" >
+        <Frame
+            Grid.Row="0"
+            CornerRadius="12"
+            BackgroundColor="White"
+            BorderColor="Black"
+            Padding="10"
+            Margin="0,30,0,10"
+            HasShadow="True">
+
+            <Label
+               x:Name="Title"
+               Text="SintomApp"
+               FontSize="Large"
+               Style="{StaticResource TitleLabelStyle}"
+               TextColor="Black"
+               HorizontalOptions="Center"/>
+
+        </Frame>
+
+        <Grid Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center">
+            <Image
+                x:Name="InmunoglobulinaImg"
+                Source="iconoapp.jpg"
+                Aspect="AspectFit"
+                HeightRequest="{OnPlatform Android=200, iOS=200, WinUI=250}"
+                WidthRequest="{OnPlatform Android=200, iOS=200, WinUI=250}" />
+        </Grid>
+
+
+
+        <VerticalStackLayout Grid.Row="2" VerticalOptions="Center" Margin="30,0,30,20">
+            <Entry 
+                   x:Name="TxtName"
+                   Placeholder="Usuario o correo" 
+                   TextColor="Black"
+                   BackgroundColor="Transparent"/>
+            <Entry 
+                   x:Name="TxtPass"
+                   Placeholder="Contraseña"
+                   TextColor="Black"
+                   BackgroundColor="Transparent"
+                   IsPassword="True"/>
+            <HorizontalStackLayout>
+                <CheckBox
+				   x:Name="ViewPassCheckBox"
+				   CheckedChanged="ViewPassCheckBox_CheckedChanged"/>
+                <Label Text="Mostrar contraseña"
+                       VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+            
+            <Button 
+                   x:Name="LogBtn"
+                   Text="Login"
+                   Clicked="LogBtnClicked"
+                   HorizontalOptions="Fill"
+                   Margin="0,15,0,0"/>
+            <Label 
+                   x:Name="Validez"
+                   Text=""
+                   FontSize="Small"
+                   TextColor="Red"
+                   IsVisible="{Binding IsErrorVisible}"
+                   HorizontalOptions="Center"/>
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="¿No tienes cuenta? " />
+                        <Span Text="Regístrate"
+                  TextColor="Blue"
+                  FontAttributes="Bold">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="Registrar"/>
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>
+    
+    
+   
+

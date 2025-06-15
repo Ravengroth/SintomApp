@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SintomApp.Views.NewUser"
+             Padding="0">
+
+    <ContentPage.Background>
+        <LinearGradientBrush>
+            <GradientStop Color="#32aaf3" Offset="0.0"/>
+            <GradientStop Color="White" Offset="1.0"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <Grid ColumnSpacing="10" Padding="10">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Título -->
+                <Label
+					   x:Name="Title"
+					   Text="AÑADIR USUARIO"
+					   TextColor="Black"
+					   FontSize="Large"
+					   Style="{StaticResource TitleLabelStyle}"
+					   HorizontalOptions="Center"
+					   Margin="0,50,0,20"
+					   Grid.Row="0"
+					   Grid.ColumnSpan="2"/>
+
+                <!-- Formulario rellenado -->
+
+                <Grid Grid.Row="1"
+					  ColumnSpacing="10"
+					  RowSpacing="10"
+					  Margin="30,0,30,20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="7*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Nombre -->
+
+                    <Label 
+							Text="Nombre: "
+							VerticalOptions="Center"
+							HorizontalOptions="Center"
+							Grid.Column="0"
+							Grid.Row="0"/>
+                    <Entry
+							x:Name="TxtName"
+							Placeholder="Nombre"
+							TextColor="Black"
+							BackgroundColor="Transparent"
+							Grid.Row="0"
+							Grid.Column="1"/>
+
+                    <!-- Apellidos -->
+
+                    <Label 
+							Text="Apellidos: "
+							VerticalOptions="Center"
+							HorizontalOptions="Center"
+							Grid.Row="1"
+							Grid.Column="0"/>
+                    <Entry
+							x:Name="TxtApellidos"
+							Placeholder="Apellidos (Opcionales)"
+							TextColor="Black"
+							BackgroundColor="Transparent"
+							Grid.Row="1"
+							Grid.Column="1"/>
+
+                    <!-- Contraseña -->
+
+                    <Label 
+							Text="Contraseña: "
+							VerticalOptions="Center"
+							HorizontalOptions="Center"
+							Grid.Row="2"
+							Grid.Column="0"/>
+                    <Entry
+							x:Name="TxtPass"
+							Placeholder="Contraseña"
+							TextColor="Black"
+							BackgroundColor="Transparent"
+							IsPassword="True"
+							Grid.Row="2"
+							Grid.Column="1"/>
+
+                    <!-- Correo -->
+
+                    <Label
+							Text="Correo: "
+							VerticalOptions="Center"
+							HorizontalOptions="Center"
+							Grid.Row="3"
+							Grid.Column="0"/>
+                    <Entry
+							x:Name="TxtCorreo"
+							Placeholder="Correo"
+							TextColor="Black"
+							BackgroundColor="Transparent"
+							Grid.Row="3"
+							Grid.Column="1"/>
+
+                    <!-- Número de teléfono -->
+
+                    <Label
+							Text="Teléfono: "
+							VerticalOptions="Center"
+							HorizontalOptions="Center"
+							Grid.Row="4"
+							Grid.Column="0"/>
+                    <Entry
+							x:Name="TxtPhone"
+							Placeholder="Número de telefono"
+							TextColor="Black"
+							BackgroundColor="Transparent"
+							Keyboard="Numeric"
+							Grid.Row="4"
+							Grid.Column="1"/>
+                    
+                    <!-- Cumpleños -->
+                    <Label 
+                            Text="Cumpleaños" 
+							VerticalOptions="Center"
+							HorizontalOptions="Center"
+                            Grid.Row="5"
+                            Grid.Column="0"/>
+                    <DatePicker 
+                            x:Name="Edad"
+                            Grid.Row="5"
+                            Grid.Column="1"/>
+
+
+                </Grid>
+
+
+                <VerticalStackLayout 
+						x:Name="CheckBoxes" 
+						IsVisible="False" 
+						Spacing="10" 
+						Grid.Row="2">
+                    <!-- CheckBoxes con Labels alineados correctamente -->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Usuario -->
+                        <CheckBox
+                            x:Name="UsuarioCheckBox"
+                            IsChecked="False"
+                            IsEnabled="True"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            CheckedChanged="Usuario_CheckedChanged"
+                            VerticalOptions="Center"/>
+                        <Label
+                            Text="Usuario"
+                            VerticalOptions="Center"
+                            Grid.Row="0"
+                            Grid.Column="1" />
+
+                        <!-- Medico -->
+                        <CheckBox
+                            x:Name="MedicoCheckBox"
+                            IsChecked="False"
+                            IsEnabled="True"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            CheckedChanged="Medico_CheckedChanged"
+                            VerticalOptions="Center"/>
+                        <Label
+                            Text="Médico"
+                            VerticalOptions="Center"
+                            Grid.Row="1"
+                            Grid.Column="1" />
+
+                        <!-- Administrador -->
+                        <CheckBox
+                            x:Name="AdminCheckBox"
+                            IsChecked="False"
+                            IsEnabled="True"
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            CheckedChanged="Admin_CheckedChanged"
+                            VerticalOptions="Center"/>
+                        <Label
+                            Text="Administrador"
+                            VerticalOptions="Center"
+                            Grid.Row="2"
+                            Grid.Column="1" />
+                    </Grid>
+                </VerticalStackLayout>
+                <VerticalStackLayout 
+                    x:Name="CamposExtraPaciente"
+                    IsVisible="False" 
+                    Spacing="10" 
+                    Grid.Row="3">
+                    <!-- Campos adicionales para el paciente -->
+
+                    <Label 
+						   Text="Selecciona una opcion: "
+						   FontAttributes="Bold"
+						   Margin="0,0,0,10"
+						   Grid.Row="0"/>
+                    <Picker x:Name="Enfermedad"
+							Grid.Row="1"
+							Title="Selecciona una patología"/>
+
+                    <Label Text="Selecciona un médico:"
+						   FontAttributes="Bold"
+						   Margin="0,10,0,5"/>
+                    <Picker x:Name="PickerMedicos"
+							Title="Médico asignado"
+							ItemDisplayBinding="{Binding NombreCompleto}" 
+                            SelectedIndexChanged="PickerMedicos_SelectedIndexChanged"/>
+
+
+                    <Label 
+						   Text="¿Con qué frecuencia se realizarán las encuestas? "
+						   FontAttributes="Bold"
+						   Margin="0,0,0,10"
+						   Grid.Row="2"/>
+                    <Entry
+							x:Name="TxtFrecuencia"
+							Placeholder="Número de dias"
+							TextColor="Black"
+							BackgroundColor="Transparent"
+							Grid.Row="3"
+							Keyboard="Numeric"/>
+                </VerticalStackLayout>
+
+                <Button
+						   x:Name="AddBtn"
+						   Text="Añadir"
+						   Clicked="AddBtnClicked"
+						   HorizontalOptions="Fill"
+						   Margin="0,15,0,40"
+						   Grid.Row="4" />
+            </Grid>
+
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
