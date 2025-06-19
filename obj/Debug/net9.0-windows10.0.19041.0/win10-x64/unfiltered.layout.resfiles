@@ -55,7 +55,7 @@ dotnet_bot.scale-200.png
 dotnet_bot.scale-400.png
 esclerodermia.scale-100.jpg
 globulos.scale-100.jpg
-iconoapp.scale-100.jpg
+iconoapp.scale-100.png
 inmunoglobulina.scale-100.jpg
 mariposa.scale-100.jpeg
 reumatologia.scale-100.png
@@ -65,3 +65,4 @@ splashSplashScreen.scale-150.png
 splashSplashScreen.scale-200.png
 splashSplashScreen.scale-400.png
 AboutAssets.txt
+rsa_keys.json

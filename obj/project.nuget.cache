@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Cpio2zFN/Uk=",
+  "dgSpecHash": "gaK24M/W1Q8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ricardo\\Desktop\\MAUI\\SintomApp\\SintomApp.csproj",
+  "projectFilePath": "C:\\Users\\Ricardo\\Desktop\\Copias\\SintomApp\\SintomApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ricardo\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512",
     "C:\\Users\\Ricardo\\.nuget\\packages\\googlegson\\2.11.0.5\\googlegson.2.11.0.5.nupkg.sha512",

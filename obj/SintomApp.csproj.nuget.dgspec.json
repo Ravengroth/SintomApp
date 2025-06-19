@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ricardo\\Desktop\\MAUI\\SintomApp\\SintomApp.csproj": {}
+    "C:\\Users\\Ricardo\\Desktop\\Copias\\SintomApp\\SintomApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ricardo\\Desktop\\MAUI\\SintomApp\\SintomApp.csproj": {
+    "C:\\Users\\Ricardo\\Desktop\\Copias\\SintomApp\\SintomApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ricardo\\Desktop\\MAUI\\SintomApp\\SintomApp.csproj",
+        "projectUniqueName": "C:\\Users\\Ricardo\\Desktop\\Copias\\SintomApp\\SintomApp.csproj",
         "projectName": "SintomApp",
-        "projectPath": "C:\\Users\\Ricardo\\Desktop\\MAUI\\SintomApp\\SintomApp.csproj",
+        "projectPath": "C:\\Users\\Ricardo\\Desktop\\Copias\\SintomApp\\SintomApp.csproj",
         "packagesPath": "C:\\Users\\Ricardo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ricardo\\Desktop\\MAUI\\SintomApp\\obj\\",
+        "outputPath": "C:\\Users\\Ricardo\\Desktop\\Copias\\SintomApp\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [

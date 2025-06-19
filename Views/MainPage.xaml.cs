@@ -30,6 +30,13 @@ namespace SintomApp.Views
             this.BackgroundColor = Colors.Transparent;
             BindingContext = this;
             SessionManager.UsuarioActual = null; // Aseguramos que no haya usuario activo al iniciar
+
+            string original = "miClave123";
+            byte[] cifrado = RSAHelper.EncryptToBytes(original);
+            string descifrado = RSAHelper.DecryptFromBytes(cifrado);
+
+            Console.WriteLine(descifrado == original ? "Correcto" : "Incorrecto");
+
         }
 
         private void LogBtnClicked(object sender, EventArgs e)

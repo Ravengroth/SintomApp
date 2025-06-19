@@ -63,7 +63,11 @@ public class DatabaseManager
         ErrorConexion
     }
 
-    //Método para obtener usuarios
+   
+    /***
+     * Método para obtener usuarios
+     * Cambios aplicados para descifrar contraseña
+     */
     public async Task<List<Usuario>> GetUsuariosAsync(int id, int tipo)
     {
         var usuarios = new List<Usuario>();
@@ -98,17 +102,31 @@ public class DatabaseManager
             using var reader = await command.ExecuteReaderAsync();
             while (await reader.ReadAsync())
             {
+                var rawPass = (byte[])reader["contrasena"];
+                string contrasenaDescifrada;
+
+                try
+                {
+                    // Intentar descifrar (asumiendo que está cifrada)
+                    contrasenaDescifrada = RSAHelper.DecryptFromBytes(rawPass);
+                }
+                catch
+                {
+                    // Si falla el descifrado, asumimos que no está cifrada, la convertimos a string UTF8
+                    contrasenaDescifrada = System.Text.Encoding.UTF8.GetString(rawPass);
+                }
+
                 var usuario = new Usuario
                 {
                     Id = reader.GetInt32("id"),
                     Nombre = reader.GetString("nombre"),
                     Apellidos = reader.IsDBNull("apellidos") ? null : reader.GetString("apellidos"),
                     Correo = reader.IsDBNull("correo") ? null : reader.GetString("correo"),
-                    Contrasena = reader.GetString("contrasena"),
+                    Contrasena = contrasenaDescifrada,
                     Patologia = reader.IsDBNull("patologia") ? null : reader.GetString("patologia"),
                     Admin = reader.GetInt32("admin"),
-                    Telefono = reader.IsDBNull("telefono") ? null : reader.GetInt32("telefono"),
-                    Enable = reader.IsDBNull("enable") ? null : reader.GetBoolean("enable"),
+                    Telefono = reader.IsDBNull("telefono") ? 0 : reader.GetInt32("telefono"),
+                    Enable = reader.IsDBNull("enable") ? false : reader.GetBoolean("enable"),
                     FechaCreacion = reader.IsDBNull("fechacreacion") ? null : reader.GetDateTime("fechacreacion"),
                     Frecuencia = reader.IsDBNull("frecuencia") ? 0 : reader.GetInt32("frecuencia"),
                     PrimerDia = reader.IsDBNull("primerdia") ? null : reader.GetDateTime("primerdia"),
@@ -132,8 +150,10 @@ public class DatabaseManager
         return usuarios;
     }
 
-
-    //Método para crear nuevo usuario
+    /***
+     * Método para crear nuevo usuario
+     * Cifrado aplicado
+     */
     public async Task<bool> InsertUsuarioAsync(Usuario usuario)
     {
         int nuevo = await ComprobarUsuario(usuario);
@@ -168,7 +188,8 @@ public class DatabaseManager
                 command.Parameters.AddWithValue("@nombre", usuario.Nombre);
                 command.Parameters.AddWithValue("@apellidos", usuario.Apellidos);
                 command.Parameters.AddWithValue("@correo", usuario.Correo);
-                command.Parameters.AddWithValue("@password", usuario.Contrasena);
+                byte[] passwordCifrada = RSAHelper.EncryptToBytes(usuario.Contrasena);
+                command.Parameters.AddWithValue("@password", passwordCifrada);
                 command.Parameters.AddWithValue("@admin", usuario.Admin);
                 command.Parameters.AddWithValue("@telefono", usuario.Telefono);
                 command.Parameters.AddWithValue("@enable", usuario.Enable);
@@ -200,7 +221,10 @@ public class DatabaseManager
         }
     }
 
-    //Método para comprobar las credenciales del usuario
+    /***
+     * Método para comprobar las credenciales del usuario
+     * Descifrado de credenciales aplicado
+     */
     public async Task<DatabaseManager.EstadoCredencial> ComprobarCredenciales(string usuarioOcorreo, string password)
     {
         using var connection = new MySqlConnection(connectionString);
@@ -218,50 +242,64 @@ public class DatabaseManager
                 return EstadoCredencial.UsuarioNoExiste;
             }
 
-            string contrasenaEnBD = reader.GetString(0);
+            var rawPass = (byte[])reader["contrasena"];
+            string contrasenaDescifrada;
+
+            int expectedCipherSize = 256; // para clave 2048 bits
+
+            if (rawPass.Length == expectedCipherSize)
+            {
+                try
+                {
+                    contrasenaDescifrada = RSAHelper.DecryptFromBytes(rawPass);
+                }
+                catch
+                {
+                    // Error real al descifrar: devolver error o loguear
+                    return EstadoCredencial.ErrorConexion;
+                }
+            }
+            else
+            {
+                // No está cifrada, convertimos directamente
+                contrasenaDescifrada = Encoding.UTF8.GetString(rawPass);
+            }
+
             int admin = reader.GetInt32(1);
             bool habilitado = reader.GetBoolean(2);
 
-            // Verificar si está habilitado
             if (!habilitado)
             {
                 return EstadoCredencial.UsuarioDeshabilitado;
             }
 
-            // Verificar contraseña
-            if (contrasenaEnBD != password)
+            if (contrasenaDescifrada != password)
             {
                 return EstadoCredencial.ContrasenaIncorrecta;
             }
 
-            // Si llegó hasta aquí, está autenticado
-            if (admin == 1)
+            return admin switch
             {
-                return EstadoCredencial.Admin;
-            }
-            else if (admin == 2)
-            {
-                return EstadoCredencial.Medico;
-            }
-            else
-            {
-                return EstadoCredencial.Autenticado;
-            }
-
+                1 => EstadoCredencial.Admin,
+                2 => EstadoCredencial.Medico,
+                _ => EstadoCredencial.Autenticado
+            };
         }
-        catch (Exception ex)
+        catch
         {
             return EstadoCredencial.ErrorConexion;
-            throw new Exception(ex.Message);
         }
         finally
         {
             connection.Dispose();
         }
-
     }
 
-    //Método para actualizar el usuario
+
+    /***
+     * Método para actualizar el usuario
+     * Cifrado aplicado a credenciales
+     */
     public async Task<bool> ActualizarUsuarioAsync(Usuario usuario)
     {
         using var connection = new MySqlConnection(connectionString);
@@ -269,30 +307,38 @@ public class DatabaseManager
         if (nuevo == -1)
         {
             Console.WriteLine("Error al comprobar el usuario");
-            return false; // Error al comprobar usuario
+            return false;
         }
         else
         {
             try
             {
                 await connection.OpenAsync();
-                string query = "UPDATE usuarios SET nombre = @nombre, apellidos = @apellidos, correo = @correo, contrasena = @contrasena, patologia = @patologia, telefono = @telefono, frecuencia = @frecuencia, medico = @medico, nacimiento = @nacimiento, edad = @edad WHERE id = @id";
+                string query = @"UPDATE usuarios 
+                             SET nombre = @nombre, apellidos = @apellidos, correo = @correo, contrasena = @contrasena, 
+                                 patologia = @patologia, telefono = @telefono, frecuencia = @frecuencia, 
+                                 medico = @medico, nacimiento = @nacimiento, edad = @edad 
+                             WHERE id = @id";
+
                 using var command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@nombre", usuario.Nombre);
                 command.Parameters.AddWithValue("@apellidos", usuario.Apellidos);
                 command.Parameters.AddWithValue("@correo", usuario.Correo);
-                command.Parameters.AddWithValue("@contrasena", usuario.Contrasena);
+
+                byte[] contrasenaCifrada = RSAHelper.EncryptToBytes(usuario.Contrasena ?? "");
+                command.Parameters.AddWithValue("@contrasena", contrasenaCifrada);
+
+
                 command.Parameters.AddWithValue("@patologia", usuario.Patologia);
                 command.Parameters.AddWithValue("@telefono", usuario.Telefono);
-                command.Parameters.AddWithValue("@admin", usuario.Admin);
                 command.Parameters.AddWithValue("@frecuencia", usuario.Frecuencia);
-                command.Parameters.AddWithValue("@id", usuario.Id);
-                command.Parameters.AddWithValue("@medico", (object?)usuario.Medico ?? DBNull.Value); // Permite que sea nulo
+                command.Parameters.AddWithValue("@medico", (object?)usuario.Medico ?? DBNull.Value);
                 command.Parameters.AddWithValue("@nacimiento", usuario.Nacimiento);
                 command.Parameters.AddWithValue("@edad", usuario.Edad);
+                command.Parameters.AddWithValue("@id", usuario.Id);
 
                 int result = await command.ExecuteNonQueryAsync();
-                return result > 0; // Devuelve true si se actualizó al menos una fila
+                return result > 0;
             }
             catch (Exception ex)
             {
@@ -304,11 +350,13 @@ public class DatabaseManager
                 connection.Dispose();
             }
         }
-
-
     }
 
-    //Método para comprobar si el usuario ya existe 
+
+    /***
+     * Método para comprobar si el usuario ya existe
+     * No necesita de cifrado
+     */ 
     private async Task<int> ComprobarUsuario(Usuario usuario)
     {
         using var connection = new MySqlConnection(connectionString);
@@ -332,7 +380,10 @@ public class DatabaseManager
         }
     }
 
-    //Método para deshabilitar el usuario
+    /***
+     * Método para deshabilitar el usuario
+     * No se aplica cifrado
+     */
     public async Task<bool> DeshabilitarUsuario(Usuario usuario)
     {
         using var connection = new MySqlConnection(connectionString);
@@ -357,7 +408,10 @@ public class DatabaseManager
         }
     }
 
-    //Método para obtener las preguntas por id
+    /***
+     * Método para obtener las preguntas por id
+     * 
+     */
     public async Task<List<Pregunta>> ObtenerPreguntasPorId(Usuario user)
     {
         using var connection = new MySqlConnection(connectionString);
@@ -427,7 +481,10 @@ public class DatabaseManager
         }
     }
 
-    //Método para guardar las respuestas en la base de datos
+    /***
+     * Método para guardar las respuestas en la base de datos
+     * Las respuestas se guardan cifradas
+     */
     public async Task<bool> GuardarRespuestasBD(Dictionary<int, string> respuestas, int idUsuario, decimal? puntuacion)
     {
         try
@@ -452,8 +509,8 @@ public class DatabaseManager
             {
                 { "encuestas", numeroEncuesta },
                 { "fecha_respuesta", DateTime.Now },
-                { "id_usuario", idUsuario.ToString() },
-                { "puntuacion", puntuacion.ToString() },
+                { "id_usuario", idUsuario },
+                { "puntuacion", (object?)puntuacion ?? DBNull.Value },
             };
 
             foreach (var kvp in respuestas)
@@ -462,12 +519,13 @@ public class DatabaseManager
                 try
                 {
                     JsonDocument.Parse(kvp.Value); // Verifica que sea JSON válido
-                    columnas[columna] = kvp.Value;
+                    byte[] respuestaCifrada = RSAHelper.EncryptToBytes(kvp.Value); // Cifra la respuesta
+                    columnas[columna] = respuestaCifrada; //Cifra la respuesta antes de guardarla
                 }
                 catch (JsonException)
                 {
                     Console.WriteLine($"Respuesta inválida en pregunta {kvp.Key}: no es un JSON válido.");
-                    columnas[columna] = null; // O ignora / lanza excepción
+                    columnas[columna] = DBNull.Value; // O ignora / lanza excepción
                 }
             }
 
@@ -481,7 +539,18 @@ public class DatabaseManager
 
             foreach (var kvp in columnas)
             {
-                cmd.Parameters.AddWithValue($"@{kvp.Key}", kvp.Value ?? DBNull.Value);
+                if (kvp.Value is byte[] bytes)
+                {
+                    cmd.Parameters.Add($"@{kvp.Key}", MySqlDbType.VarBinary, 512).Value = bytes; // Añadir como byte[] si es una respuesta cifrada
+                }
+                else if (kvp.Value == null || kvp.Value == DBNull.Value)
+                {
+                    cmd.Parameters.AddWithValue($"@{kvp.Key}", DBNull.Value); // Añadir como NULL si es nulo
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue($"@{kvp.Key}", kvp.Value); // Añadir como valor normal
+                }
             }
             await cmd.ExecuteNonQueryAsync();
 
@@ -503,7 +572,10 @@ public class DatabaseManager
         }
     }
 
-    // En DatabaseManager.cs
+    /***
+     * Listado de médicos
+     * 
+     */
     public async Task<List<Medico>> ObtenerMedicosAsync()
     {
         var medicos = new List<Medico>();
@@ -527,52 +599,79 @@ public class DatabaseManager
         return medicos;
     }
 
-    // Obtenemos usuario con credenciales correctas
-    public async Task<Usuario> CargarUsuarioBD(string nameOcorreo, string pass)
+    /***
+     * Obtenemos usuario con credenciales correctas
+     * 
+     */
+    public async Task<Usuario?> CargarUsuarioBD(string nameOcorreo, string pass)
     {
         using var connection = new MySqlConnection(connectionString);
         try
         {
             await connection.OpenAsync();
-            string query = "SELECT id, nombre, apellidos, correo, contrasena, patologia, telefono, primerdia, frecuencia, admin, medico FROM usuarios WHERE (nombre = @nameOcorreo OR correo = @nameOcorreo) AND contrasena = @pass";
+
+            string query = "SELECT id, nombre, apellidos, correo, contrasena, patologia, telefono, primerdia, frecuencia, admin, medico FROM usuarios WHERE nombre = @nameOcorreo OR correo = @nameOcorreo";
             using var command = new MySqlCommand(query, connection);
             command.Parameters.AddWithValue("@nameOcorreo", nameOcorreo);
-            command.Parameters.AddWithValue("@pass", pass);
+
             using var reader = await command.ExecuteReaderAsync();
+
             if (await reader.ReadAsync())
             {
+                if (reader["contrasena"] is not byte[] contrasenaBytes)
+                {
+                    // No hay contraseña o el tipo es incorrecto
+                    return null;
+                }
+
+                string contrasenaDescifrada;
+                try
+                {
+                    // Intentar descifrar con RSA
+                    contrasenaDescifrada = RSAHelper.DecryptFromBytes(contrasenaBytes);
+                }
+                catch
+                {
+                    // Si falla, asumimos contraseña en texto plano en bytes UTF8
+                    contrasenaDescifrada = System.Text.Encoding.UTF8.GetString(contrasenaBytes);
+                }
+
+                if (contrasenaDescifrada != pass)
+                {
+                    // Contraseña no coincide
+                    return null;
+                }
+
                 return new Usuario
                 {
-                    Id = reader.GetInt32(0),
-                    Nombre = reader.GetString(1),
-                    Apellidos = reader.GetString(2),
-                    Correo = reader.GetString(3),
-                    Contrasena = reader.GetString(4),
-                    Patologia = reader.IsDBNull(5) ? null : reader.GetString(5),
-                    Telefono = reader.GetInt32(6),
-                    PrimerDia = reader.IsDBNull(7) ? null : reader.GetDateTime(7),
-                    Frecuencia = reader.IsDBNull(8) ? 0 : reader.GetInt32(8),
-                    Admin = reader.GetInt32(9),
-                    Medico = reader.IsDBNull(10) ? null : reader.GetInt32(10)
+                    Id = reader.GetInt32("id"),
+                    Nombre = reader.GetString("nombre"),
+                    Apellidos = reader.GetString("apellidos"),
+                    Correo = reader.GetString("correo"),
+                    Contrasena = contrasenaDescifrada,
+                    Patologia = reader.IsDBNull(reader.GetOrdinal("patologia")) ? null : reader.GetString("patologia"),
+                    Telefono = reader.GetInt32("telefono"),
+                    PrimerDia = reader.IsDBNull(reader.GetOrdinal("primerdia")) ? null : reader.GetDateTime("primerdia"),
+                    Frecuencia = reader.IsDBNull(reader.GetOrdinal("frecuencia")) ? 0 : reader.GetInt32("frecuencia"),
+                    Admin = reader.GetInt32("admin"),
+                    Medico = reader.IsDBNull(reader.GetOrdinal("medico")) ? null : reader.GetInt32("medico")
                 };
             }
+
             return null;
         }
         catch (Exception ex)
         {
             Console.WriteLine($"Error al cargar usuario: {ex.Message}");
-
             return null;
         }
-        finally
-        {
-            connection.Dispose();
-
-        }
-
     }
 
-    // Comprobar que ha respondido a las encuestas
+
+
+    /***
+     * Comprobar que ha respondido a las encuestas
+     */
     public async Task<bool?> EstadoEncuesta(int usuarioId, DateTime fecha)
     {
         using var connection = new MySqlConnection(connectionString);
@@ -605,7 +704,9 @@ public class DatabaseManager
 
     }
 
-    // Todas las encuestas
+    /***
+     * Todas las fechas de encuestas
+     */
     public async Task<List<DateTime>> ObtenerFechasEncuestasRealizadas(int usuarioId)
     {
         var fechas = new List<DateTime>();
@@ -634,7 +735,9 @@ public class DatabaseManager
         return fechas;
     }
 
-    // Eventos de los usuarios
+    /***
+     * Eventos de los usuarios
+     */
     public async Task<List<Evento>> ObtenerEventos(int usuarioId, DateTime fecha)
     {
         var eventos = new List<Evento>();
@@ -668,7 +771,9 @@ public class DatabaseManager
         return eventos;
     }
 
-    // Eventos del mes
+    /***
+     * Eventos del mes
+     */
     public async Task<List<Evento>> ObtenerEventosDelMes(int idUsuario, int year, int month)
     {
         var eventos = new List<Evento>();
@@ -706,6 +811,9 @@ public class DatabaseManager
         return eventos;
     }
 
+    /***
+     * Añadir evento a la base de datos
+     */
     public async Task<bool> InsertarEvento(Evento evento)
     {
         using var connection = new MySqlConnection(connectionString);
@@ -732,6 +840,9 @@ public class DatabaseManager
         }
     }
 
+    /***
+     * Método para obtener el último registro de respuestas de un usuario
+     */
     public async Task<Dictionary<string, object>> GetUltimoRegistroAsync(int userId)
     {
         using var connection = new MySqlConnection(connectionString);
@@ -759,6 +870,10 @@ public class DatabaseManager
         return new Dictionary<string, object>();
     }
 
+    /***
+     * Método para obtener preguntas y respuestas por fecha
+     * Desencriptación de respuestas aplicada
+     */
     public async Task<Dictionary<Pregunta, string>> ObtenerPreguntasYRespuestasPorFechaAsync(Usuario user, DateTime fechaSeleccionada)
     {
         var resultado = new Dictionary<Pregunta, string>();
@@ -766,7 +881,6 @@ public class DatabaseManager
         using var connection = new MySqlConnection(connectionString);
         await connection.OpenAsync();
 
-        // 1. Obtener todas las respuestas del usuario en esa fecha
         string query = "SELECT * FROM registros WHERE id_usuario = @id AND DATE(fecha_respuesta) = @fecha";
         using var cmd = new MySqlCommand(query, connection);
         cmd.Parameters.AddWithValue("@id", user.Id);
@@ -783,11 +897,15 @@ public class DatabaseManager
             var col = reader.GetName(i);
             if (col.StartsWith("p_") && !reader.IsDBNull(i))
             {
-                respuestas[col] = reader.GetString(i);
+                // Leer como byte[]
+                byte[] valorBytes = (byte[])reader.GetValue(i);
+
+                // Descifrar o devolver texto plano si no está cifrado
+                string respuestaDescifrada = DescifrarSiEsPosible2(valorBytes);
+                respuestas[col] = respuestaDescifrada;
             }
         }
 
-        // 2. Asociar cada respuesta con su pregunta correspondiente
         foreach (var entry in respuestas)
         {
             if (!int.TryParse(entry.Key.Substring(2), out int idPregunta))
@@ -806,7 +924,6 @@ public class DatabaseManager
 
             string respuesta = entry.Value;
 
-            // Si es tipo JSON (string2 o string3)
             if (respuesta.StartsWith("{"))
             {
                 try
@@ -834,7 +951,6 @@ public class DatabaseManager
                         var partes = data.EnumerateObject().Select(p => $"{p.Name}: {p.Value.GetString()}");
                         respuesta = string.Join(", ", partes);
                     }
-
                 }
                 catch (Exception ex)
                 {
@@ -852,6 +968,10 @@ public class DatabaseManager
         return resultado;
     }
 
+
+    /***
+     * Método para descifrar respuestas si es posible, o devolver el texto original
+     */
     public async Task<List<(DateTime fecha, decimal puntuacion)>> ObtenerPuntuacionesUsuario(Usuario usuario)
     {
         var resultado = new List<(DateTime, decimal)>();
@@ -886,6 +1006,10 @@ public class DatabaseManager
 
     }
 
+    /***
+     * Método para obtener el historial de respuestas por día
+     * Desencriptación de respuestas aplicada
+     */
     public async Task<Dictionary<Pregunta, List<(DateTime fecha, string respuesta)>>> ObtenerHistorialPorPregunta(Usuario usuario)
     {
         var resultado = new Dictionary<Pregunta, List<(DateTime, string)>>();
@@ -905,12 +1029,15 @@ public class DatabaseManager
             foreach (var column in reader.GetColumnSchema().Where(c => c.ColumnName.StartsWith("p_")))
             {
                 string rawId = column.ColumnName.Substring(2);
-                int preguntaId = int.Parse(rawId);
+                if (!int.TryParse(rawId, out int preguntaId))
+                    continue;
 
-                // Obtener texto de pregunta (puedes tenerlo cacheado o consultar otra tabla)
                 var pregunta = await ObtenerPreguntaPorId(preguntaId);
 
-                string respuesta = reader[column.ColumnName]?.ToString() ?? "";
+                string respuestaCruda = reader[column.ColumnName]?.ToString() ?? "";
+
+                // Descifrar si está cifrada, o devolver tal cual si no lo está
+                string respuesta = DescifrarSiEsPosible(respuestaCruda);
 
                 if (!resultado.ContainsKey(pregunta))
                     resultado[pregunta] = new List<(DateTime, string)>();
@@ -922,6 +1049,9 @@ public class DatabaseManager
         return resultado;
     }
 
+    /***
+     * Obtener una pregunta por su id de referencia
+     */
     public async Task<Pregunta> ObtenerPreguntaPorId(int idPregunta)
     {
         using var connection = new MySqlConnection(connectionString);
@@ -965,6 +1095,10 @@ public class DatabaseManager
         }
     }
 
+    /***
+     * Método para obtener el historial de respuestas por pregunta
+     * Desencriptación de respuestas aplicada
+     */
     public async Task<List<RespuestaConFecha>> ObtenerRespuestasPorPregunta(int idUsuario, int idPregunta)
     {
         var respuestas = new List<RespuestaConFecha>();
@@ -981,12 +1115,15 @@ public class DatabaseManager
             while (await reader.ReadAsync())
             {
                 var fecha = reader.GetDateTime(0);
-                var valor = reader.IsDBNull(1) ? "Sin respuesta" : reader.GetString(1);
+                var valorCrudo = reader.IsDBNull(1) ? "Sin respuesta" : reader.GetString(1);
+
+                // Intentamos descifrar la respuesta si está cifrada
+                var valorDescifrado = DescifrarSiEsPosible(valorCrudo);
 
                 respuestas.Add(new RespuestaConFecha
                 {
                     Fecha = fecha,
-                    Valor = valor
+                    Valor = valorDescifrado
                 });
             }
 
@@ -995,11 +1132,14 @@ public class DatabaseManager
         catch (Exception ex)
         {
             Console.WriteLine($"Error al cargar las respuestas de la pregunta con ID {idPregunta}: {ex.Message}");
-            throw; // Re-lanza la excepción para que pueda ser capturada por el código que llama
+            throw;
         }
     }
 
-
+    /***
+     * Generación de contraseña por defecto
+     * Evitar registro de usuarios no permitidos
+     */
     public async Task<TokenRegistroResultado> GenerarTokenRegistroAsync(string correo)
     {
         var resultado = new TokenRegistroResultado();
@@ -1064,7 +1204,9 @@ public class DatabaseManager
         }
     }
 
-
+    /*** 
+     * Verificar si el token de registro es válido
+     */
     public async Task<bool> VerificarTokenRegistroAsync(string correo, string token)
     {
         using var connection = new MySqlConnection(connectionString);
@@ -1079,6 +1221,9 @@ public class DatabaseManager
         return count > 0;
     }
 
+    /***
+     * Marcar el token como usado
+     */
     public async Task MarcarTokenComoUsadoAsync(string correo, string token)
     {
         using var connection = new MySqlConnection(connectionString);
@@ -1090,6 +1235,9 @@ public class DatabaseManager
         await command.ExecuteNonQueryAsync();
     }
 
+    /***
+     * Guardar aviso médico
+     */
     public async Task GuardarAvisoAsync(int idPaciente, int idMedico, decimal puntuacion, string mensaje)
     {
         using var connection = new MySqlConnection(connectionString);
@@ -1114,6 +1262,9 @@ public class DatabaseManager
         }
     }
 
+    /***
+     * Obtener avisos para un médico específico
+     */
     public async Task<List<Aviso>> ObtenerAvisosMedicoAsync(int idMedico)
     {
         var avisos = new List<Aviso>();
@@ -1137,6 +1288,10 @@ public class DatabaseManager
         return avisos;
     }
 
+    /***
+     * Obtener un usuario por correo y token
+     * Este método se utiliza para verificar el registro de usuarios
+     */
     public async Task<Usuario?> ObtenerUsuarioPorCorreoAsync(string correo, string token)
     {
         Usuario? usuario = null;
@@ -1173,6 +1328,10 @@ public class DatabaseManager
         }
     }
 
+    /***
+     * Método para obtener las puntuaciones de los usuarios asignados a un médico
+     * Devuelve una lista de puntuaciones (decimales) de los usuarios asignados a un médico específico
+     */
     public async Task<List<decimal>> ObtenerPuntuacionesUsuariosMedico(int idMedico)
     {
         var resultados = new List<decimal>();
@@ -1229,7 +1388,38 @@ public class DatabaseManager
         }
     }
 
+    /***
+     * Método para descifrar un texto si es posible, o devolver el texto original
+     * Utiliza RSAHelper para descifrar si el texto está cifrado en base64
+     */
+    private string DescifrarSiEsPosible(string texto)
+    {
+        try
+        {
+            // Intentar decodificar base64
+            var bytes = Convert.FromBase64String(texto);
+            // Intentar descifrar los bytes
+            return RSAHelper.DecryptFromBytes(bytes);
+        }
+        catch
+        {
+            // Si falla, devolver el texto original (asumimos que no estaba cifrado)
+            return texto;
+        }
+    }
 
+    private string DescifrarSiEsPosible2(byte[] data)
+    {
+        try
+        {
+            return RSAHelper.DecryptFromBytes(data);
+        }
+        catch
+        {
+            // Si no se pudo descifrar, intentamos convertirlo a texto plano
+            return Encoding.UTF8.GetString(data);
+        }
+    }
 
 }
 

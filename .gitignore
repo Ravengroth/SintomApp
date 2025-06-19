@@ -1,0 +1,112 @@
+# ----------------------------------------
+# Archivos de compilación y temporales
+# ----------------------------------------
+
+bin/
+obj/
+*.exe
+*.dll
+*.app
+*.apk
+*.aab
+*.msi
+*.dmg
+
+# ----------------------------------------
+# Configuración de usuario / entorno
+# ----------------------------------------
+
+*.user
+*.userosscache
+*.suo
+*.vs/
+.vscode/
+*.swp
+*.tmp
+*.bak
+
+# ----------------------------------------
+# Archivos de log / temporales / backups
+# ----------------------------------------
+
+*.log
+*.log.*
+*.nlog
+*.bak
+*.tmp
+*.old
+
+# ----------------------------------------
+# Configuración de diseño/respaldo
+# ----------------------------------------
+
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.mdf
+*.ldf
+
+# ----------------------------------------
+# Claves y configuraciones sensibles
+# ----------------------------------------
+
+rsa_keys.json
+*.pem
+*.key
+*.crt
+
+# ----------------------------------------
+# Archivos generados por herramientas de build
+# ----------------------------------------
+
+/*.vsconfig
+/.idea/
+.project
+*.csproj.user
+*.csproj.userosscache
+*.sln.docstates
+
+# ----------------------------------------
+# Plataforma específicas
+# ----------------------------------------
+
+# Windows
+*.pdb
+*.cache
+*.manifest
+*.vsix
+
+# Mac / iOS
+*.xcuserstate
+*.xcworkspace
+*.xcodeproj
+*.ipa
+.DS_Store
+
+# Android
+*.apk
+*.aab
+*.keystore
+
+# ----------------------------------------
+# Publicación
+# ----------------------------------------
+
+*.publishsettings
+publish/
+
+# ----------------------------------------
+# Archivos personalizados de usuario
+# ----------------------------------------
+
+/Resources/Fonts/Custom/
+.env
+.env.*
+
+# ----------------------------------------
+# Archivos personales o experimentales
+# ----------------------------------------
+
+notas.txt
+config_local.json

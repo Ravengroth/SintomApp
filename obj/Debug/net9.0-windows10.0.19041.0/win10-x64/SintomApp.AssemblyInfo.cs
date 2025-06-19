@@ -18,7 +18,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SintomApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+acc8a5cf0b7df5be7ccb79b6696819a64b60096a")]
 [assembly: System.Reflection.AssemblyProductAttribute("SintomApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SintomApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
