@@ -1,17 +1,17 @@
 ﻿using MySqlConnector;
 using System.Text.Json;
+using SintomApp.Class;
+using System.Data;
+using static Microsoft.Maui.ApplicationModel.Permissions;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Security.Cryptography;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using Dapper;
-using static Microsoft.Maui.ApplicationModel.Permissions;
-using SintomApp.Class;
-using System.Data;
 
 public class DatabaseManager
 {
